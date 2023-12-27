@@ -1,11 +1,6 @@
-console.log("Hello World!");
 
-// require("gun/lib/mobile");
 var Gun = require("gun/src");
 require("gun/sea");
-// require('gun/lib/radix.js');
-// require('gun/lib/radisk.js');
-// require('gun/lib/store.js');
 
 var opts = {};
 opts.peers = [
@@ -18,15 +13,12 @@ opts.peers = [
 opts.store = {};
 opts.store.put = function (file, data, cb) { cb(null, -10) }; // dev/null!
 opts.store.get = function (file, cb) { cb(null) };
-
 opts.file = false;
 opts.localStorage = false;
 
 var gun = Gun(opts)
 
-
 window.gun = gun;
-
 
 gun.get("init").get("time").put("t-" + new Date().getTime())
 
