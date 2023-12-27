@@ -1,7 +1,7 @@
 App.opt = {};
 App.opt.file = "false";
 
-App.opt.store = {};
+App.opt.store = {};//nomem
 App.opt.store.put = function (file, data, cb) { cb(null, -9) }; // dev/null!
 App.opt.store.get = function (file, cb) { cb(null) };
 

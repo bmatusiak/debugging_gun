@@ -10,7 +10,7 @@ opts.peers = [
     // "http://localhost:8192/gun",
 ]
 
-opts.store = {};
+opts.store = {};//nomem
 opts.store.put = function (file, data, cb) { cb(null, -10) }; // dev/null!
 opts.store.get = function (file, cb) { cb(null) };
 opts.file = false;

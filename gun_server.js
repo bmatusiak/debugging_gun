@@ -44,13 +44,8 @@ gun_opt.multicast = false
 //gun/server logic
 var gun = Gun(gun_opt)
 
-// gun.get("some").get("important").get("key").on(function (data, $g) {
-//     console.log(data);
-// });
-
 server.listen(process.env.PORT || 8080, process.env.IP || "0.0.0.0", function(){
     console.log("listening", process.env.PORT || 8080, process.env.IP || "0.0.0.0")
 });
-// console.log("listening")
 
 gun_app(gun)
