@@ -5,6 +5,20 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "webpack",
+            "request": "launch",
+            "runtimeArgs": [
+                "run-script",
+                "serve"
+            ],
+            "cwd": "${workspaceFolder}\\browser\\",
+            "runtimeExecutable": "npm",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node"
+        },
+        {
             "type": "node",
             "request": "launch",
             "name": "gun_external_A",
@@ -14,8 +28,7 @@
             "cwd": "${workspaceFolder}\\gun_external\\",
             "program": "${workspaceFolder}\\gun_server.js",
             "env": {
-                "PORT": "8190",
-                "RADATA_PATH": "${workspaceFolder}\\radata_a"
+                "PORT": "8190"
             }
         },
         {
@@ -28,8 +41,7 @@
             "cwd": "${workspaceFolder}\\gun_external\\",
             "program": "${workspaceFolder}\\gun_server.js",
             "env": {
-                "PORT": "8191",
-                "RADATA_PATH": "${workspaceFolder}\\radata_b"
+                "PORT": "8191"
             }
         },
         {
