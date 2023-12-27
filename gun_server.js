@@ -3,12 +3,10 @@
 
 const path = require('path');
 
-//.env
-var GUN_PEER = ["http://localhost:8080/gun"];
-
 //gun
 var gun_dir = path.dirname(require.resolve("gun"))
 var Gun = require("gun");
+var gun_app = require(process.cwd() + "/app.js");
 
 //server/express
 var express = require('express');
@@ -29,20 +27,30 @@ app.use("/gun/", express.static(gun_dir + '/examples'));
 app.use(express.static('public'));;//if you want to serve stuff public folder
 
 
+var gun_opt = gun_app.opt || {};
+
+gun_opt.file = gun_opt.file || process.env.RADATA_PATH || "radata";
+if(gun_opt.file == "radata"){
+    console.log(e= "env RADATA_PATH must me set");
+    throw e
+}
+if(gun_opt.file == "false"){
+    gun_opt.file = false;
+}
+gun_opt.web = server;
+gun_opt.axe = false;
+gun_opt.multicast = false
+
 //gun/server logic
-var gun = Gun({ 
-    web: server, 
-    peers: GUN_PEER,
-    axe:false,
-    multicast:false,
-    dam:false
-})
+var gun = Gun(gun_opt)
 
-gun.get("some").get("important").get("key").on(function (data, $g) {
-    console.log(data);
+// gun.get("some").get("important").get("key").on(function (data, $g) {
+//     console.log(data);
+// });
+
+server.listen(process.env.PORT || 8080, process.env.IP || "0.0.0.0", function(){
+    console.log("listening", process.env.PORT || 8080, process.env.IP || "0.0.0.0")
 });
+// console.log("listening")
 
-server.listen(process.env.PORT || 8083, process.env.IP || "0.0.0.0");
-console.log("listening")
-
-require("./test.js")(gun)
+gun_app(gun)

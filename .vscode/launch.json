@@ -4,7 +4,6 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-
         {
             "type": "node",
             "request": "launch",
@@ -12,7 +11,12 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\gun_external_A\\gun_a.js"
+            "cwd": "${workspaceFolder}\\gun_external\\",
+            "program": "${workspaceFolder}\\gun_server.js",
+            "env": {
+                "PORT": "8190",
+                "RADATA_PATH": "${workspaceFolder}\\radata_a"
+            }
         },
         {
             "type": "node",
@@ -21,16 +25,12 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\gun_external_B\\gun_b.js"
-        },
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "gun_external_C",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "program": "${workspaceFolder}\\gun_external_C\\gun_c.js"
+            "cwd": "${workspaceFolder}\\gun_external\\",
+            "program": "${workspaceFolder}\\gun_server.js",
+            "env": {
+                "PORT": "8191",
+                "RADATA_PATH": "${workspaceFolder}\\radata_b"
+            }
         },
         {
             "type": "node",
@@ -39,7 +39,12 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\gun_internal_0\\gun_0.js"
+            "cwd": "${workspaceFolder}\\gun_internal\\",
+            "program": "${workspaceFolder}\\gun_server.js",
+            "env": {
+                "PORT": "8180",
+                "RADATA_PATH": "${workspaceFolder}\\radata_0"
+            }
         }
     ]
 }
