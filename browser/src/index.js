@@ -1,6 +1,7 @@
 
-var Gun = require("gun/src");
-require("gun/sea");
+var Gun = require("gun");
+var _SEA = require("gun/sea");
+console.log(_SEA);
 
 var opts = {};
 opts.peers = [
@@ -9,6 +10,11 @@ opts.peers = [
     "http://localhost:8191/gun",
     // "http://localhost:8192/gun",
 ]
+
+require("gun/lib/radix.js");
+require("gun/lib/radisk.js");
+require("gun/lib/store.js");
+require("gun/lib/rindexed.js");
 
 opts.store = {};//nomem
 opts.store.put = function (file, data, cb) { cb(null, -10) }; // dev/null!

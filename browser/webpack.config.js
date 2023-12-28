@@ -5,16 +5,18 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const isProduction = process.env.NODE_ENV == 'production';
 
-
 const config = {
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
     },
+    watchOptions: {
+        ignored: ['**/radata*'],
+    },
     devServer: {
         open: false,
         host: 'localhost',
-        port: 9000,
+        port: 9000
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -40,8 +42,8 @@ const config = {
 module.exports = () => {
     if (isProduction) {
         config.mode = 'production';
-        
-        
+
+
     } else {
         config.mode = 'development';
     }

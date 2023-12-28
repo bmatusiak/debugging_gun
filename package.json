@@ -9,9 +9,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "gun":"github:bmatusiak/gun#localStorage-fix",
-    "gun-unbuild":"github:bmatusiak/gun-unbuild",
-    "gun-rebuild-sea":"github:bmatusiak/gun-rebuild-sea",
-    "express": "^4.18.2"
+    "browser-app": "file:browser",
+    "express": "^4.18.2",
+    "gun": "file:gun",
+    "gun-rebuild": "github:bmatusiak/gun-rebuild",
+    "gun-rebuild-sea": "github:bmatusiak/gun-rebuild-sea",
+    "gun-unbuild": "github:bmatusiak/gun-unbuild",
+    "text-encoding": "^0.7.0"
   }
 }

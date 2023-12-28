@@ -1,5 +1,5 @@
 {
-  "name": "my-webpack-project",
+  "name": "browser-app",
   "version": "1.0.0",
   "description": "My webpack project",
   "main": "index.js",
@@ -16,6 +16,7 @@
   "dependencies": {
   },
   "devDependencies": {
+    "gun":"*",
     "html-webpack-plugin": "^5.5.3",
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4",

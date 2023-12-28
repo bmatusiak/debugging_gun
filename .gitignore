@@ -2,3 +2,4 @@ node_modules
 radata
 radata*
 package-lock.json
+gun
